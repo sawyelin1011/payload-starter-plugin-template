@@ -1,0 +1,100 @@
+.variantManager {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bulkActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bulkAction {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.variantsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.variantCard {
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.variantHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.variantFields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.optionsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.optionsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.option {
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  background: var(--theme-elevation-100);
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.375rem;
+}
+
+.variantActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--theme-elevation-500);
+}

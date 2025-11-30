@@ -1,0 +1,98 @@
+.imageSetManager {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.helpText {
+  font-size: 0.875rem;
+  color: var(--theme-elevation-500);
+}
+
+.imageGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.imageCard {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: var(--theme-elevation-0);
+}
+
+.imageCard.dragging {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.imagePreview {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--theme-elevation-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholder {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--theme-elevation-500);
+  padding: 0.5rem;
+}
+
+.primaryBadge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: var(--theme-success-500);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.imageInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.375rem;
+}
+
+.imageActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dragHandle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  color: var(--theme-elevation-400);
+  font-size: 1.25rem;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--theme-elevation-500);
+}

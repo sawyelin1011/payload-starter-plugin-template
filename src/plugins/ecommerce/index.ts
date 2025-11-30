@@ -14,6 +14,7 @@ import { createProductsCollection } from './collections/Products.js'
 import { StoreSettings } from './collections/StoreSettings.js'
 import { Subscriptions } from './collections/Subscriptions.js'
 import { Tenants } from './collections/Tenants.js'
+import { ThemeConfig } from './collections/ThemeConfig.js'
 import { createVariantsCollection } from './collections/Variants.js'
 import { seedEcommerceData } from './seed.js'
 
@@ -177,9 +178,93 @@ export const ecommerceMultiTenantPlugin =
     config.collections.push(createVariantsCollection([...resolvedConfig.productVariantFields]))
 
     config.collections.push(StoreSettings)
+    config.collections.push(ThemeConfig)
 
     if (resolvedConfig.disabled) {
       return config
+    }
+
+    if (!config.admin) {
+      config.admin = {}
+    }
+
+    if (!config.admin.components) {
+      config.admin.components = {}
+    }
+
+    if (!config.admin.components.beforeDashboard) {
+      config.admin.components.beforeDashboard = []
+    }
+
+    if (!config.admin.components.beforeNavLinks) {
+      config.admin.components.beforeNavLinks = []
+    }
+
+    config.admin.components.beforeDashboard.push(
+      'plugin-package-name-placeholder/client#InventorySnapshot',
+    )
+    config.admin.components.beforeDashboard.push('plugin-package-name-placeholder/client#RevenueKPI')
+
+    config.admin.components.beforeNavLinks.push(
+      'plugin-package-name-placeholder/client#TenantSwitcher',
+    )
+
+    if (!config.admin.routes) {
+      config.admin.routes = []
+    }
+
+    if (Array.isArray(config.admin.routes)) {
+      config.admin.routes.push({
+        Component: 'plugin-package-name-placeholder/client#OrdersRoute',
+        path: '/commerce/orders',
+      })
+
+      config.admin.routes.push({
+        Component: 'plugin-package-name-placeholder/client#FulfillmentRoute',
+        path: '/commerce/fulfillment',
+      })
+
+      config.admin.routes.push({
+        Component: 'plugin-package-name-placeholder/client#AnalyticsRoute',
+        path: '/commerce/analytics',
+      })
+
+      config.admin.routes.push({
+        Component: 'plugin-package-name-placeholder/client#ThemeBuilderRoute',
+        path: '/commerce/theme-builder',
+      })
+    }
+
+    const productsCollection = config.collections.find((col) => col.slug === 'products')
+    if (productsCollection) {
+      if (!productsCollection.admin) {
+        productsCollection.admin = {}
+      }
+      if (!productsCollection.admin.components) {
+        productsCollection.admin.components = {}
+      }
+      if (!productsCollection.admin.components.beforeList) {
+        productsCollection.admin.components.beforeList = []
+      }
+      productsCollection.admin.components.beforeList.push(
+        'plugin-package-name-placeholder/client#ProductsBeforeList',
+      )
+    }
+
+    const ordersCollection = config.collections.find((col) => col.slug === 'orders')
+    if (ordersCollection) {
+      if (!ordersCollection.admin) {
+        ordersCollection.admin = {}
+      }
+      if (!ordersCollection.admin.components) {
+        ordersCollection.admin.components = {}
+      }
+      if (!ordersCollection.admin.components.beforeList) {
+        ordersCollection.admin.components.beforeList = []
+      }
+      ordersCollection.admin.components.beforeList.push(
+        'plugin-package-name-placeholder/client#OrdersBeforeList',
+      )
     }
 
     const incomingOnInit = config.onInit
