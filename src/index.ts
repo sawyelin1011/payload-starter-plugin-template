@@ -1,6 +1,7 @@
 import type { CollectionSlug, Config } from 'payload'
 
 import { customEndpointHandler } from './endpoints/customEndpointHandler.js'
+import { ecommerceMultiTenantPlugin } from './plugins/ecommerce/index.js'
 
 export type MyPluginConfig = {
   /**
@@ -9,6 +10,11 @@ export type MyPluginConfig = {
   collections?: Partial<Record<CollectionSlug, true>>
   disabled?: boolean
 }
+
+export { ecommerceMultiTenantPlugin }
+
+export * from './plugins/ecommerce/seed.js'
+export * from './types/config.js'
 
 export const myPlugin =
   (pluginOptions: MyPluginConfig) =>
