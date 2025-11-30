@@ -65,7 +65,8 @@ const ensureTenantAwareUsers = (collections: CollectionConfig[]): void => {
     )
 
     tenantUserFields.forEach((field) => {
-      if (!existingFields.has(field.name as string)) {
+      const fieldName = getFieldName(field)
+      if (fieldName && !existingFields.has(fieldName)) {
         usersCollection.fields?.push(field)
       }
     })
@@ -85,11 +86,6 @@ const ensureTenantAwareUsers = (collections: CollectionConfig[]): void => {
         type: 'email',
         required: true,
         unique: true,
-      },
-      {
-        name: 'password',
-        type: 'password',
-        required: true,
       },
       ...tenantUserFields,
     ],
@@ -209,30 +205,28 @@ export const ecommerceMultiTenantPlugin =
       'plugin-package-name-placeholder/client#TenantSwitcher',
     )
 
-    if (!config.admin.routes) {
-      config.admin.routes = []
+    if (!config.admin.components.views) {
+      config.admin.components.views = {}
     }
 
-    if (Array.isArray(config.admin.routes)) {
-      config.admin.routes.push({
-        Component: 'plugin-package-name-placeholder/client#OrdersRoute',
-        path: '/commerce/orders',
-      })
+    config.admin.components.views['commerce-orders'] = {
+      Component: 'plugin-package-name-placeholder/client#OrdersRoute',
+      path: '/commerce/orders',
+    }
 
-      config.admin.routes.push({
-        Component: 'plugin-package-name-placeholder/client#FulfillmentRoute',
-        path: '/commerce/fulfillment',
-      })
+    config.admin.components.views['commerce-fulfillment'] = {
+      Component: 'plugin-package-name-placeholder/client#FulfillmentRoute',
+      path: '/commerce/fulfillment',
+    }
 
-      config.admin.routes.push({
-        Component: 'plugin-package-name-placeholder/client#AnalyticsRoute',
-        path: '/commerce/analytics',
-      })
+    config.admin.components.views['commerce-analytics'] = {
+      Component: 'plugin-package-name-placeholder/client#AnalyticsRoute',
+      path: '/commerce/analytics',
+    }
 
-      config.admin.routes.push({
-        Component: 'plugin-package-name-placeholder/client#ThemeBuilderRoute',
-        path: '/commerce/theme-builder',
-      })
+    config.admin.components.views['commerce-theme-builder'] = {
+      Component: 'plugin-package-name-placeholder/client#ThemeBuilderRoute',
+      path: '/commerce/theme-builder',
     }
 
     const productsCollection = config.collections.find((col) => col.slug === 'products')
