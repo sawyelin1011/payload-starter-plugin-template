@@ -19,6 +19,11 @@
       "import": "./src/exports/rsc.ts",
       "types": "./src/exports/rsc.ts",
       "default": "./src/exports/rsc.ts"
+    },
+    "./exports": {
+      "import": "./src/exports/index.ts",
+      "types": "./src/exports/index.ts",
+      "default": "./src/exports/index.ts"
     }
   },
   "main": "./src/index.ts",
@@ -103,6 +108,11 @@
         "import": "./dist/exports/rsc.js",
         "types": "./dist/exports/rsc.d.ts",
         "default": "./dist/exports/rsc.js"
+      },
+      "./exports": {
+        "import": "./dist/exports/index.js",
+        "types": "./dist/exports/index.d.ts",
+        "default": "./dist/exports/index.js"
       }
     },
     "main": "./dist/index.js",
