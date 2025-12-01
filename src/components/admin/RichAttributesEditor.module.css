@@ -1,0 +1,58 @@
+.attributesEditor {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attributesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.attributeCard {
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.editForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.attributeDisplay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attributeInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.attributeType {
+  font-size: 0.75rem;
+  color: var(--theme-elevation-500);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input,
+.select {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.375rem;
+}

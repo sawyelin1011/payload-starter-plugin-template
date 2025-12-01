@@ -1,0 +1,26 @@
+.priceFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.priceFieldInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.375rem;
+  padding: 0.75rem 1rem 0.75rem 2rem;
+  background: var(--theme-elevation-0);
+}
+
+.currencySymbol {
+  position: absolute;
+  left: 0.75rem;
+  color: var(--theme-elevation-500);
+}
+
+.priceDisplay {
+  font-size: 1.5rem;
+  font-weight: 600;
+}

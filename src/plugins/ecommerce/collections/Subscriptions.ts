@@ -131,6 +131,7 @@ export const Subscriptions: CollectionConfig = {
   hooks: {
     beforeValidate: [
       ({ data, operation, req }) => {
+        if (!data) {return data}
         if (operation === 'create' && req.user && !data.tenantId) {
           data.tenantId = req.user.tenantId
         }

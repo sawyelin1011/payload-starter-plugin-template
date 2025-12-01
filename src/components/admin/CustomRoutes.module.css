@@ -1,0 +1,245 @@
+.routeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.subtitle {
+  color: var(--theme-elevation-500);
+}
+
+.filterBar,
+.dateRangePicker {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.dateRangePicker button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--theme-elevation-150);
+  background: transparent;
+  cursor: pointer;
+}
+
+.dateRangePicker button.active {
+  background: var(--theme-elevation-900);
+  color: white;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--theme-elevation-100);
+}
+
+.table th {
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--theme-elevation-500);
+}
+
+.orderNumber {
+  font-weight: 600;
+}
+
+.statusBadge {
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.statusPaid {
+  background: var(--theme-success-100);
+  color: var(--theme-success-700);
+}
+
+.statusFulfilled {
+  background: var(--theme-success-50);
+  color: var(--theme-success-800);
+}
+
+.statusPending {
+  background: var(--theme-warning-100);
+  color: var(--theme-warning-800);
+}
+
+.loading,
+.emptyState {
+  text-align: center;
+  padding: 2rem;
+  color: var(--theme-elevation-500);
+}
+
+.taskGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.taskCard {
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: var(--theme-elevation-0);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.taskLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--theme-elevation-500);
+}
+
+.taskValue {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.taskDetails {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.itemsList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0;
+}
+
+.itemsList li {
+  display: flex;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.itemQty {
+  color: var(--theme-elevation-500);
+}
+
+.actionBar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.actionButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.status_pending {
+  background: var(--theme-warning-100);
+  color: var(--theme-warning-800);
+}
+
+.status_packing {
+  background: var(--theme-warning-200);
+  color: var(--theme-warning-900);
+}
+
+.status_shipped {
+  background: var(--theme-accent-100, #cfdffe);
+  color: var(--theme-accent-900, #1d3a8a);
+}
+
+.status_delivered {
+  background: var(--theme-success-100);
+  color: var(--theme-success-800);
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.metricCard {
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  background: var(--theme-elevation-0);
+}
+
+.metricLabel {
+  font-size: 0.9rem;
+  color: var(--theme-elevation-500);
+}
+
+.metricValue {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.panel {
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: var(--theme-elevation-0);
+}
+
+.productsList,
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.productRow,
+.orderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productStats,
+.orderInfo {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--theme-elevation-500);
+}
+
+.productName,
+.orderNumber {
+  font-weight: 600;
+}

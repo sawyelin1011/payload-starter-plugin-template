@@ -98,7 +98,7 @@ export const seedEcommerceData = async (
   }
 
   if (adminUser && !adminUser.tenantId) {
-    await assignUserToTenant(payload, adminUser.id as string, tenant.id)
+    await assignUserToTenant(payload, String(adminUser.id), String(tenant.id))
     console.log('  ✓ Linked admin user to tenant')
   }
 

@@ -108,6 +108,7 @@ export const Licenses: CollectionConfig = {
   hooks: {
     beforeValidate: [
       ({ data, operation, req }) => {
+        if (!data) {return data}
         if (operation === 'create') {
           if (req.user && !data.tenantId) {
             data.tenantId = req.user.tenantId

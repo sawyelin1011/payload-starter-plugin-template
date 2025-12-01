@@ -1,0 +1,23 @@
+.beforeList {
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--theme-elevation-0);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.info {
+  margin-top: 0.5rem;
+  color: var(--theme-elevation-500);
+}

@@ -1,4 +1,4 @@
-import type { CollectionConfig, Field } from 'payload'
+import type { CollectionConfig, Field, Where } from 'payload'
 
 export const createProductsCollection = (additionalFields: Field[] = []): CollectionConfig => ({
   slug: 'products',
@@ -12,7 +12,9 @@ export const createProductsCollection = (additionalFields: Field[] = []): Collec
       }
     },
     read: ({ req: { user } }) => {
-      if (!user) {return { status: { equals: 'published' } }}
+      if (!user) {
+        return { status: { equals: 'published' } } as Where
+      }
       if (user.role === 'admin') {return true}
       return {
         tenantId: { equals: user.tenantId },
@@ -184,6 +186,7 @@ export const createProductsCollection = (additionalFields: Field[] = []): Collec
   hooks: {
     beforeValidate: [
       ({ data, operation, req }) => {
+        if (!data) {return data}
         if (operation === 'create' && req.user && !data.tenantId) {
           data.tenantId = req.user.tenantId
         }
